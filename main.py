@@ -1,6 +1,4 @@
-# Fast Finder & Analyzer Tool
-# Devang Patel | ADA Mini Project
-# To run: python -m streamlit run your_app_name.py
+
 
 import streamlit as st
 import pandas as pd
@@ -8,9 +6,7 @@ import matplotlib.pyplot as plt
 import time
 import random
 
-# -------------------- Algorithm Functions --------------------
 
-# --- SEARCH ALGORITHMS ---
 
 def linear_search(arr, key):
     """
@@ -28,7 +24,7 @@ def binary_search_with_steps(arr, key):
     This helps in visualizing the process.
     """
     steps = []
-    # Binary search only works on a sorted list!
+    
     arr.sort() 
     low = 0
     high = len(arr) - 1
@@ -41,22 +37,19 @@ def binary_search_with_steps(arr, key):
             steps.append(f"✅ Found {key} at index {mid}.")
             return mid, steps
         elif arr[mid] < key:
-            # Key is in the right half
+
             low = mid + 1
         else:
-            # Key is in the left half
+           
             high = mid - 1
             
     steps.append(f"❌ {key} not found in the list.")
     return -1, steps
 
-# --- MAX-MIN ALGORITHMS ---
+
 
 def iterative_max_min(arr):
-    """
-    Finds max and min using a single loop.
-    Simple and straightforward.
-    """
+   
     if not arr:
         return None, None
     
@@ -71,22 +64,19 @@ def iterative_max_min(arr):
     return maximum, minimum
 
 def divide_conquer_max_min(arr):
-    """
-    Finds max and min using the Divide and Conquer strategy.
-    """
-    # Base case: If the list is small, solve it directly.
+   
     if len(arr) == 1:
         return arr[0], arr[0]
     elif len(arr) == 2:
         return (arr[0], arr[1]) if arr[0] > arr[1] else (arr[1], arr[0])
     
-    # Divide step
+  
     mid = len(arr) // 2
-    # Recursively solve for the two halves
+  
     max1, min1 = divide_conquer_max_min(arr[:mid])
     max2, min2 = divide_conquer_max_min(arr[mid:])
     
-    # Conquer step: Combine the results
+   
     final_max = max(max1, max2)
     final_min = min(min1, min2)
     
@@ -221,4 +211,5 @@ if numbers:
         st.pyplot(fig)
 
 st.sidebar.markdown("---")
+
 st.sidebar.write("ADA Mini Project")
