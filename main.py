@@ -9,20 +9,14 @@ import random
 
 
 def linear_search(arr, key):
-    """
-    A simple loop to find the key.
-    This is our "brute-force" method to compare against.
-    """
+   
     for i in range(len(arr)):
         if arr[i] == key:
             return i
     return -1
 
 def binary_search_with_steps(arr, key):
-    """
-    Performs binary search and also returns the steps taken.
-    This helps in visualizing the process.
-    """
+    
     steps = []
     
     arr.sort() 
